@@ -1,0 +1,41 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+import java.util.stream.*;
+class Main {
+    public static void main(String[] args) {
+        
+    //     List<Integer> list = Arrays.asList(3,4,5,2,1,9);
+    //   Integer i = list.stream().sorted.collect(Collectors.toList()).get(n-2);
+    Addition<Integer,String> add = ( i ,  j)->{
+        System.out.println(j+i);
+        return i+Integer.valueOf(j); };
+    //add.add(1,2);
+    System.out.println( add.add(1,"2"));
+    // Calculator cal = new Calculator();
+    
+    //     System.out.println( cal.add(1,2));
+    //}
+}
+
+// class Calculator implements Addition{
+
+//     public int add(int a, int b){
+//         return a+b;
+//     }
+    
+//     //abstract public int sub(int a, int b);
+    
+}
+
+interface Addition<T,K>{
+    public T add(T t, K k);
+    // default public int add(int a, int b){
+    //     return a+b;
+    // }
+}
+
+
+
+
+
