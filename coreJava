@@ -1,0 +1,47 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Employee emp = new Employee(7);
+        emp.work();
+        
+        System.out.println("Work done today: "+emp.hours(Arrays.asList(3,"5:48")));
+    }
+}
+// interface Hours {
+//     public Object hours(int t);
+// }
+interface Attendance<T> {
+    //   default public <?> hours(T t){
+    //       return t;
+    //   }
+    default public T hours(T t) {
+        return t;
+    }
+}
+class Organization {
+    public Organization(int k){
+        System.out.println("org Const...");
+    }
+    protected void work() {
+        System.out.println("org Method...");
+    }
+}
+
+class Employee extends Organization implements Attendance{
+    public int j;
+    public Employee(int j){
+        super(j);
+        this.j = j;
+        System.out.println("emp Const...");
+    }
+    
+    public void work() {
+        System.out.println("Overridden org Method...");
+    }
+    
+    public List<?> hours( List<?> t){
+          return t;
+      }
+}
