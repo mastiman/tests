@@ -1,0 +1,29 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+class Main {
+    public static void main(String[] args) {
+        
+        List<Integer> list = Arrays.asList(1,2,2,2,null
+        ,3,3,5,5,5,5);
+        int[] liist = {1,2,2,2
+        ,3,3,5,5,5,5};
+        list.stream().sorted();
+        Map<Integer, Long> map = new HashMap();
+         map = Arrays.stream(liist).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()) );
+        
+        // for(Integer i : list){
+        //     if(map.get(i)!=null) map.put(i,map.get(i)+1);
+        //     else map.put(i,1);
+        // }
+        
+        LinkedList<Map.Entry<Integer,Integer>> llist = 
+        map.entrySet().stream()
+        .sorted(Comparator.comparing(Map.Entry::getValue)).collect(Collectors.toCollection(LinkedList::new));
+        
+        
+        System.out.println(llist);  
+    }
+}
