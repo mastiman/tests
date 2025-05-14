@@ -1,0 +1,22 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+import java.util.stream.*;
+import java.util.stream.Collectors;
+import java.util.function.*;
+class Main {
+    public static void main(String[] args) {
+         int[] array = {1, 1,2, 1, 2, 3, 3, 4};
+Map<Integer, List<Integer>> result = 
+        IntStream.range(0, array.length)
+                 .boxed()
+                 .collect(Collectors.groupingBy(i->array[i], Collectors.toList()));
+// Arrays.stream(array).boxed().map()limit(3).collect(Collectors.toList()).collect(Collectors.toList());
+    
+    Map<Integer, Long> list = Arrays.stream(array).boxed().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+    
+    
+        System.out.println(list);
+         System.out.println(result);
+    }
+}
