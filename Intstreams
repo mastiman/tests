@@ -20,3 +20,31 @@ Map<Integer, List<Integer>> result =
          System.out.println(result);
     }
 }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,3,4,5,3,2,5,7};
+        int lim = (arr.length/3)*3;
+        int rem = arr.length - lim;
+        List<List<Integer>> list = new ArrayList<>();
+        List<List<Integer>> list1 = IntStream.range(0,arr.length).boxed().filter(i->i%3==0&&i<lim-2).map((i)->{
+            return Arrays.asList(arr[i],arr[i+1],arr[i+2]);
+            }).collect(Collectors.toList());
+            // while(i<lim-2){
+            // list.add(Arrays.asList(arr[i],arr[i+1],arr[i+2]));
+            // i=i+3;
+        List<Integer> temp = new ArrayList();
+        while(rem>0){
+            temp.add(arr[lim+2-rem]);
+            rem--;
+        }
+        list1.add(temp);
+        System.out.println(list1);
+    }
+}
